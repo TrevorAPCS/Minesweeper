@@ -184,7 +184,7 @@ public void mousePressed(){
       break;
   }
 }
-public void manageClick(int row, int col){
+/*public void manageClick(int row, int col){
   MSButton button = buttons[row][col];
   int s = checkSurroundings(row, col);
   if(button.getBomb()){
@@ -208,7 +208,7 @@ public void manageClick(int row, int col){
       }
     }
   }
-}
+}*/
 public int checkSurroundings(int row, int col){
   int numBombs = 0;
   for(int r = row - 1; r < row + 2; r++){
