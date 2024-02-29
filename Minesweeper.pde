@@ -24,11 +24,13 @@ GameState gs = GameState.START;
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> mines; //ArrayList of just the minesweeper buttons that are mined
 
-void setup ()
+public void setup ()
 {
     size(500, 400);
     windowResizable(true);
     textAlign(CENTER, CENTER);
+    fill(255, 0, 0);
+    rect(0, 0, width, height);
     //your code to initialize buttons goes here
     Bstart = new Button((double)1/2, (double)1/2, (double)1/3, (double)23/64, 2, "Start", true);
     hard = new Button((double)1/7, (double)1/2, (double)1/3, (double)1/9, 2, "Hard", true);
@@ -184,7 +186,7 @@ public void mousePressed(){
       break;
   }
 }
-/*public void manageClick(int row, int col){
+public void manageClick(int row, int col){
   MSButton button = buttons[row][col];
   int s = checkSurroundings(row, col);
   if(button.getBomb()){
@@ -208,7 +210,7 @@ public void mousePressed(){
       }
     }
   }
-}*/
+}
 public int checkSurroundings(int row, int col){
   int numBombs = 0;
   for(int r = row - 1; r < row + 2; r++){
