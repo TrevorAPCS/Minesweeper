@@ -51,7 +51,7 @@ class Button{
   public void display(String str){
     bText = str;
   }
-  protected boolean mousePos(){
+  public boolean mousePos(){
     return mouseX > x && mouseX < x + sX && mouseY > y && mouseY < y + sY;
   }
 }
