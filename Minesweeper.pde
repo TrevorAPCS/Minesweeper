@@ -8,7 +8,7 @@ private Button medium;
 private Button easy;
 private Button restart, menu;
 public int tSize = 15;
-private enum GameState{
+/*private enum GameState{
   MENU,
   PLAYSTART,
   PLAY,
@@ -19,8 +19,13 @@ public enum ButtonState{
   ON,
   FLAGGED,
   OFF;
+}*/
+public enum TESTENUM{
+  TEST,
+  TEST2;
 }
-GameState gs = GameState.MENU;
+//GameState gs = GameState.MENU;
+private TESTENUM t = TESTENUM.TEST;
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> mines; //ArrayList of just the minesweeper buttons that are mined
 
