@@ -2,7 +2,7 @@ private final int NUM_ROWS = 20;
 private final int NUM_COLS = 20;
 private int flags = 30;
 private int difficulty = 1;
-private Button start;
+private Button Bstart;
 private Button hard;
 private Button medium;
 private Button easy;
@@ -30,7 +30,7 @@ void setup ()
     windowResizable(true);
     textAlign(CENTER, CENTER);
     //your code to initialize buttons goes here
-    start = new Button((double)1/2, (double)1/2, (double)1/3, (double)23/64, 2, "Start", true);
+    Bstart = new Button((double)1/2, (double)1/2, (double)1/3, (double)23/64, 2, "Start", true);
     hard = new Button((double)1/7, (double)1/2, (double)1/3, (double)1/9, 2, "Hard", true);
     medium = new Button((double)1/7, (double)5/8, (double)1/3, (double)1/9, 2, "Medium", true);
     easy = new Button((double)1/7, (double)3/4, (double)1/3, (double)1/9, 2, "Easy", true);
@@ -82,17 +82,17 @@ public void draw ()
       startMenu();
       break;
     case GAMEOVER :
-      drawButtons();
+      showButtons();
       showRestartButtons();
       displayLosingMessage();
       break;
     case WINNER :
-      drawButtons();
+      showButtons();
       showRestartButtons();
       displayWinningMessage();
       break; 
     default:
-      drawButtons();
+      showButtons();
       showRestartButtons();
       if(gs == GameState.PLAY && isWon()){
         gs = GameState.WINNER;
@@ -130,7 +130,7 @@ public boolean isValid(int r, int c)
       return true;
     return false;
 }
-public void drawButtons(){
+public void showButtons(){
   for(int r = 0; r < buttons.length; r++){
     for(int c = 0; c < buttons[r].length; c++){
       buttons[r][c].show();
@@ -231,19 +231,19 @@ public void startMenu(){
   else
     dString = "Hard";
   fill(150);
-  rect(0 + width / 8, 0 + height / 8, width * 3 / 4, height * 3 / 4);
+  rect(width / 8, height / 8, width * 3 / 4, height * 3 / 4);
   fill(0);
   textSize(TEXT_SIZE * 3);
   text("Minesweeper", width/2, height/4);
   textSize(TEXT_SIZE * 2);
   text("Difficulty: " + dString, width / 2, height * 3 / 8);
-  start.show();
+  Bstart.show();
   hard.show();
   medium.show();
   easy.show();
 }
 public void startButtons(){
-  if(start.click()){
+  if(Bstart.click()){
     generateButtons();
     gs = GameState.PLAYSTART;
   }
