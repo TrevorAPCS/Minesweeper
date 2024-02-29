@@ -27,10 +27,10 @@ private ArrayList <MSButton> mines; //ArrayList of just the minesweeper buttons 
 void setup ()
 {
     size(500, 400);
-    windowResizable(true);
-    textAlign(CENTER, CENTER);
     fill(255, 0, 0);
     rect(0, 0, width, height);
+    windowResizable(true);
+    textAlign(CENTER, CENTER);
     //your code to initialize buttons goes here
     Bstart = new Button((double)1/2, (double)1/2, (double)1/3, (double)23/64, 2, "Start", true);
     hard = new Button((double)1/7, (double)1/2, (double)1/3, (double)1/9, 2, "Hard", true);
