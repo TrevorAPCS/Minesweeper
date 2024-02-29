@@ -130,12 +130,6 @@ public boolean isValid(int r, int c)
       return true;
     return false;
 }
-public int countMines(int row, int col)
-{
-    int numMines = 0;
-    //your code here
-    return numMines;
-}
 public void drawButtons(){
   for(int r = 0; r < buttons.length; r++){
     for(int c = 0; c < buttons[r].length; c++){
@@ -197,7 +191,6 @@ public void manageClick(int row, int col){
     for(int i = 0; i < mines.size(); i++){
       mines.get(i).click(false);
     }
-    draw();
     gs = GameState.GAMEOVER;
   }
   else if(s != 0){
