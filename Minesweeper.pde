@@ -20,7 +20,7 @@ public enum ButtonState{
   FLAGGED,
   OFF;
 }*/
-GameState gs = GameState.START;
+//GameState gs = GameState.START;
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> mines; //ArrayList of just the minesweeper buttons that are mined
 
