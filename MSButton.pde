@@ -3,21 +3,21 @@ class MSButton extends Button{
   private double xOffset, yOffset;
   private boolean isBomb, inArray;
   private ButtonState state;
-  public MSButton(int xPos, int yPos, int lenX, int lenY, double tr, double xOffset, double yOffset, String bText){
-    super(width * xPos / lenX, height * yPos / lenY, width / lenX, height / lenY, tr, bText, false);
-    this.xPos = xPos;
-    this.yPos = yPos;
-    this.lenX = lenX;
-    this.lenY = lenY;
-    this.xOffset = xOffset;
-    this.yOffset = yOffset;
+  public MSButton(int xPosp, int yPosp, int lenXp, int lenYp, double trp, double xOffsetp, double yOffsetp, String bTextp){
+    super(width * xPosp / lenXp, height * yPosp / lenYp, width / lenXp, height / lenYp, trp, bTextp, false);
+    xPos = xPosp;
+    yPos = yPosp;
+    lenX = lenXp;
+    lenY = lenYp;
+    xOffset = xOffsetp;
+    yOffset = yOffsetp;
     isBomb = false;
     state = ButtonState.OFF;
     inArray = true;
   }
   public boolean click(boolean mPos){
     //returns new state
-    if(!mPos || mouseX >= x && mouseX <= x + sX && mouseY >= y && mouseY <= y + sY){
+    if(!mPos || mousePos()){
       if(state == ButtonState.OFF){
         state = ButtonState.ON;
         return true;
@@ -26,7 +26,7 @@ class MSButton extends Button{
     return false;
   }
   public ButtonState flag(){
-    if(mouseX >= x && mouseX <= x + sX && mouseY >= y && mouseY <= y + sY){
+    if(mousePos()){
       if(state == ButtonState.FLAGGED){
         state = ButtonState.OFF;
       }
@@ -47,7 +47,7 @@ class MSButton extends Button{
         fill(65);
     }
     else if(state == ButtonState.FLAGGED){
-      if(mouseX >= x && mouseX <= x + sX && mouseY >= y && mouseY <= y + sY){
+      if(mousePos()){
         fill(0, 0, 155);
       }
       else{
@@ -55,7 +55,7 @@ class MSButton extends Button{
       }
     }
     else{
-      if(mouseX >= x && mouseX <= x + sX && mouseY >= y && mouseY <= y + sY){
+      if(mousePos()){
         fill(75);
       }
       else{
