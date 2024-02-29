@@ -28,7 +28,7 @@ void setup ()
 {
     size(500, 400);
     //windowResizable(true);
-    textAlign(CENTER, CENTER);
+    //textAlign(CENTER, CENTER);
     fill(255, 0, 0);
     rect(0, 0, width, height);
     //your code to initialize buttons goes here
