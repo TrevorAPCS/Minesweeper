@@ -4,8 +4,8 @@ class Button{
   protected double tr;
   protected String bText;
   private boolean scalable;
-  public Button(double pX, double pY, double sizeX, double sizeY, double tr, String buttonText, boolean scalable){
-    this.scalable = scalable;
+  public Button(double pX, double pY, double sizeX, double sizeY, double trp, String buttonText, boolean scalablep){
+    scalable = scalablep;
     if(scalable){
       xr = pX;
       yr = pY;
@@ -19,7 +19,7 @@ class Button{
       sY = (int)sizeY;
     }
     bText = buttonText;
-    this.tr = tr;
+    tr = trp;
   }
   public void updatePos(){
     x = (int)(xr * width);
@@ -28,7 +28,7 @@ class Button{
     sY = (int)(syr * height);
   }
   public boolean click(){
-    if(mouseX >= x && mouseX <= x + sX && mouseY >= y && mouseY <= y + sY){
+    if(mousePos()){
       return true;
     }
     return false;
@@ -38,7 +38,7 @@ class Button{
       updatePos();
     textAlign(CENTER);
     textSize(TEXT_SIZE * (float)tr);
-    if(mouseX >= x && mouseX <= x + sX && mouseY >= y && mouseY <= y + sY){
+    if(mousePos()){
       fill(75);
     }
     else{
@@ -50,5 +50,8 @@ class Button{
   }
   public void display(String str){
     bText = str;
+  }
+  protected boolean mousePos(){
+    return mouseX > x && mouseX < x + sX && mouseY > y && mouseY < y + sY;
   }
 }
