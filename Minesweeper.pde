@@ -1,9 +1,6 @@
-private static final int NUM_ROWS = 20;
-private static final int NUM_COLS = 20;
-private int GRID_HEIGHT;
+private final int NUM_ROWS = 20;
+private final int NUM_COLS = 20;
 private int flags = 30;
-private int gameOverTimer = 0;
-private int gameOverTimerTime = 20;
 private int difficulty = 1;
 private Button start;
 private Button hard;
@@ -11,14 +8,14 @@ private Button medium;
 private Button easy;
 private Button restart, menu;
 public int TEXT_SIZE = 15;
-private static enum GameState{
+private enum GameState{
   START,
   PLAYSTART,
   PLAY,
   GAMEOVER,
   WINNER;
 }
-public static enum ButtonState{
+public enum ButtonState{
   ON,
   FLAGGED,
   OFF;
@@ -32,7 +29,6 @@ void setup ()
     size(500, 400);
     windowResizable(true);
     textAlign(CENTER, CENTER);
-    GRID_HEIGHT = height * 4 / 5;
     //your code to initialize buttons goes here
     start = new Button((double)1/2, (double)1/2, (double)1/3, (double)23/64, 2, "Start", true);
     hard = new Button((double)1/7, (double)1/2, (double)1/3, (double)1/9, 2, "Hard", true);
