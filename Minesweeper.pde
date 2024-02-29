@@ -27,8 +27,8 @@ private ArrayList <MSButton> mines; //ArrayList of just the minesweeper buttons 
 void setup ()
 {
     size(500, 400);
-    //windowResizable(true);
-    //textAlign(CENTER, CENTER);
+    windowResizable(true);
+    textAlign(CENTER, CENTER);
     fill(255, 0, 0);
     rect(0, 0, width, height);
     //your code to initialize buttons goes here
@@ -39,7 +39,7 @@ void setup ()
     restart = new Button((double)39/48, (double)3/4, (double)1/6, (double)1/9, 1.5, "Restart", true);
     menu = new Button((double)39/48, (double)7/8, (double)1/6, (double)1/9, 1.5, "Menu", true);
 }
-public void generateButtons(){
+/*public void generateButtons(){
   buttons = new MSButton[NUM_ROWS][NUM_COLS];
   for(int r = 0; r < buttons.length; r++){
     for(int c = 0; c < buttons[r].length; c++){
@@ -279,4 +279,4 @@ public void updateTextSize(){
   else{
     tSize = height/33;
   }
-}
+}*/
