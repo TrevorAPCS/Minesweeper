@@ -8,8 +8,8 @@ private Button medium;
 private Button easy;
 private Button restart, menu;
 public int tSize = 15;
-/*private enum GameState{
-  START,
+private enum GameState{
+  MENU,
   PLAYSTART,
   PLAY,
   GAMEOVER,
@@ -19,8 +19,8 @@ public enum ButtonState{
   ON,
   FLAGGED,
   OFF;
-}*/
-//GameState gs = GameState.START;
+}
+GameState gs = GameState.MENU;
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> mines; //ArrayList of just the minesweeper buttons that are mined
 
@@ -79,7 +79,7 @@ public void draw ()
   background( 0 );
   updateTextSize();
   switch(gs) {
-    case START :
+    case MENU :
       startMenu();
       break;
     case GAMEOVER :
@@ -141,7 +141,7 @@ public void showButtons(){
 public void mousePressed(){
   boolean leftMouse = false;
   switch (gs){
-    case START :
+    case MENU :
       startButtons();
       break;
     case GAMEOVER :
@@ -268,7 +268,7 @@ public void restartButtons(){
     gs = GameState.PLAYSTART;
   }
   if(menu.click()){
-    gs = GameState.START;
+    gs = GameState.MENU;
   }
 }
 public void updateTextSize(){
