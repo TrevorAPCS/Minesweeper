@@ -23,6 +23,7 @@ public enum ButtonState{
 public enum TESTENUM{
   TEST,
   TEST2;
+  private TESTENUM(){};
 }
 //GameState gs = GameState.MENU;
 private TESTENUM t = TESTENUM.TEST;
