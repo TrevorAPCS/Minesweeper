@@ -7,7 +7,7 @@ private Button hard;
 private Button medium;
 private Button easy;
 private Button restart, menu;
-public int TEXT_SIZE = 15;
+public int tSize = 15;
 private enum GameState{
   START,
   PLAYSTART,
@@ -114,13 +114,13 @@ public boolean isWon()
 }
 public void displayLosingMessage()
 {
-  textSize(TEXT_SIZE * 2);
+  textSize(tSize * 2);
   fill(255);
   text("You Lose", width*9/10 , height * 1/2);
 }
 public void displayWinningMessage()
 {
-  textSize(TEXT_SIZE * 2);
+  textSize(tSize * 2);
   fill(255);
   text("You Win", width*9/10, height * 1/2);
 }
@@ -233,9 +233,9 @@ public void startMenu(){
   fill(150);
   rect(width / 8, height / 8, width * 3 / 4, height * 3 / 4);
   fill(0);
-  textSize(TEXT_SIZE * 3);
+  textSize(tSize * 3);
   text("Minesweeper", width/2, height/4);
-  textSize(TEXT_SIZE * 2);
+  textSize(tSize * 2);
   text("Difficulty: " + dString, width / 2, height * 3 / 8);
   Bstart.show();
   hard.show();
@@ -272,9 +272,9 @@ public void restartButtons(){
 }
 public void updateTextSize(){
   if(width < height){
-    TEXT_SIZE = width/33;
+    tSize = width/33;
   }
   else{
-    TEXT_SIZE = height/33;
+    tSize = height/33;
   }
 }
