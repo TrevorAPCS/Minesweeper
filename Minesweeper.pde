@@ -24,7 +24,7 @@ GameState gs = GameState.START;
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> mines; //ArrayList of just the minesweeper buttons that are mined
 
-public void setup ()
+void setup ()
 {
     size(500, 400);
     //windowResizable(true);
