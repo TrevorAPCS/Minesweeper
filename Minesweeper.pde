@@ -8,25 +8,9 @@ private Button medium;
 private Button easy;
 private Button restart, menu;
 public int tSize = 15;
-/*private enum GameState{
-  MENU,
-  PLAYSTART,
-  PLAY,
-  GAMEOVER,
-  WINNER;
-}
-public enum ButtonState{
-  ON,
-  FLAGGED,
-  OFF;
-}*/
-public enum TESTENUM{
-  TEST,
-  TEST2;
-  private TESTENUM(){};
-}
+// 0 = menu, 1 = before first click, 2 = play after first click, 3 = gameover, 4 = winning screen
+private int gameState = 0;
 //GameState gs = GameState.MENU;
-private TESTENUM t = TESTENUM.TEST;
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> mines; //ArrayList of just the minesweeper buttons that are mined
 
@@ -84,25 +68,29 @@ public void draw ()
 {
   background( 0 );
   updateTextSize();
-  switch(gs) {
-    case MENU :
+  switch(gameState) {
+    case 0:
+      // start menu
       startMenu();
       break;
-    case GAMEOVER :
+    case 3:
+      // gameover
       showButtons();
       showRestartButtons();
       displayLosingMessage();
       break;
-    case WINNER :
+    case 4:
+      // winner
       showButtons();
       showRestartButtons();
       displayWinningMessage();
       break; 
     default:
+      //playing the game
       showButtons();
       showRestartButtons();
-      if(gs == GameState.PLAY && isWon()){
-        gs = GameState.WINNER;
+      if(gameState == 2 && isWon()){
+        gameState = 4;
       }
       fill(255);
       text("Flags:", width * 9 / 10, height * 1 / 10);
@@ -113,7 +101,7 @@ public void draw ()
 public boolean isWon()
 {
     for(int i = 0; i < mines.size(); i++){
-      if(mines.get(i).getState() != ButtonState.FLAGGED){
+      if(mines.get(i).getState() != 2){
         return false;
       }
     }
@@ -146,14 +134,17 @@ public void showButtons(){
 }
 public void mousePressed(){
   boolean leftMouse = false;
-  switch (gs){
-    case MENU :
+  switch (gameState){
+    case 0:
+      // menu
       startButtons();
       break;
-    case GAMEOVER :
+    case 3:
+      // gameover
       restartButtons();
       break;
-    case WINNER :
+    case 4:
+      // winner
       restartButtons();
       break;
     default :
@@ -165,19 +156,19 @@ public void mousePressed(){
           MSButton b = buttons[r][c];
           if(leftMouse){
             if(b.click(true)){
-              if(gs == GameState.PLAYSTART){
+              if(gameState == 1){
                 startGame(b);
-                gs = GameState.PLAY;
+                gameState = 2;
               }
               manageClick(r, c);
             }
           }
           else{
-            ButtonState bState = b.flag();
-            if(bState == ButtonState.OFF){
+            int bState = b.flag();
+            if(bState == 0){
               flags += 1;
             }
-            else if(bState == ButtonState.FLAGGED){
+            else if(bState == 2){
               flags -= 1;
             }
             if(flags < 0){
@@ -198,7 +189,7 @@ public void manageClick(int row, int col){
     for(int i = 0; i < mines.size(); i++){
       mines.get(i).click(false);
     }
-    gs = GameState.GAMEOVER;
+    gameState = 3;
   }
   else if(s != 0){
     button.display(s + "");
@@ -252,7 +243,7 @@ public void startMenu(){
 public void startButtons(){
   if(Bstart.click()){
     generateButtons();
-    gs = GameState.PLAYSTART;
+    gameState = 1;
   }
   if(hard.click()){
     difficulty = 2;
@@ -271,10 +262,10 @@ public void showRestartButtons(){
 public void restartButtons(){
   if(restart.click()){
     generateButtons();
-    gs = GameState.PLAYSTART;
+    gameState = 1;
   }
   if(menu.click()){
-    gs = GameState.MENU;
+    gameState = 0;
   }
 }
 public void updateTextSize(){
@@ -284,4 +275,4 @@ public void updateTextSize(){
   else{
     tSize = height/33;
   }
-}*/
+}
