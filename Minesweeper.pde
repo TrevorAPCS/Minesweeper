@@ -1,5 +1,5 @@
-private final int NUM_ROWS = 20;
-private final int NUM_COLS = 20;
+private final static int NUM_ROWS = 20;
+private final static int NUM_COLS = 20;
 private int flags = 30;
 private int difficulty = 1;
 private Button Bstart;
@@ -18,7 +18,7 @@ void setup () {
     size(500, 400);
     fill(255, 0, 0);
     rect(0, 0, width, height);
-    windowResizable(true);
+    //windowResizable(true);
     textAlign(CENTER, CENTER);
     //your code to initialize buttons goes here
     Bstart = new Button((double)1/2, (double)1/2, (double)1/3, (double)23/64, 2, "Start", true);
@@ -28,7 +28,7 @@ void setup () {
     restart = new Button((double)39/48, (double)3/4, (double)1/6, (double)1/9, 1.5, "Restart", true);
     menu = new Button((double)39/48, (double)7/8, (double)1/6, (double)1/9, 1.5, "Menu", true);
 }
-/*public void generateButtons(){
+public void generateButtons(){
   buttons = new MSButton[NUM_ROWS][NUM_COLS];
   for(int r = 0; r < buttons.length; r++){
     for(int c = 0; c < buttons[r].length; c++){
