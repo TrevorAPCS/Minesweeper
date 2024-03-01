@@ -16,8 +16,6 @@ private ArrayList <MSButton> mines; //ArrayList of just the minesweeper buttons 
 
 void setup () {
     size(500, 400);
-    fill(255, 0, 0);
-    rect(0, 0, width, height);
     //windowResizable(true);
     textAlign(CENTER, CENTER);
     //your code to initialize buttons goes here
